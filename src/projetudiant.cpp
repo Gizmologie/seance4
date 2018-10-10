@@ -1,6 +1,9 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <fstream>
+
+
 using namespace std;
 
 class etudiant {
@@ -16,6 +19,9 @@ int main (void) {
 	int val;
 	cout << "Choisissez le nombre d'etudiant" << endl;
 	cin >> val;
+
+	ofstream f_notes;
+	f_notes.open("notes.txt");
 	for(int i=0;i<val;i++)
 	{
 		cout << "Entrer le nom de l'etudiant" << endl;
@@ -25,7 +31,10 @@ int main (void) {
 		tabetu.push_back(etudiant());
 		tabetu[i].nom = aux_name;
 		tabetu[i].note = aux_note;
+		// Ecrire dans un fichier
+		f_notes<<tabetu[i].nom << "\t" << tabetu[i].note <<endl;
 	}
+	f_notes.close();
 
 	cout << "la liste es etudiants" << endl;
 	for (int i = 0; i<tabetu.size(); i++)
@@ -46,6 +55,13 @@ int main (void) {
 			break;
 		}
 	}
+
+	// Gerer la persistence des notes
+
+	ofstream fichier_notes;
+	fichier_notes.open("file.txt");
+	fichier_notes<<"EPSI";
+	fichier_notes.close();
 return 0;
 }
 
