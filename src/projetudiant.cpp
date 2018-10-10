@@ -13,7 +13,10 @@ int main (void) {
 	vector <etudiant> tabetu;
 	string aux_name;
 	float aux_note;
-	for(int i=0;i<10;i++)
+	int val;
+	cout << "Choisissez le nombre d'etudiant" << endl;
+	cin >> val;
+	for(int i=0;i<val;i++)
 	{
 		cout << "Entrer le nom de l'etudiant" << endl;
 		cin >> aux_name;
@@ -28,6 +31,20 @@ int main (void) {
 	for (int i = 0; i<tabetu.size(); i++)
 	{
 		cout << tabetu[i].nom << "      " << tabetu[i].note << endl;
+	}
+
+	string etu;
+	cout << "Vous voulez voir les notes de quel etudiant ?" << endl;
+	cin >> etu;
+
+
+	for (int i=0; i<tabetu.size(); i++)
+	{
+		if (etu == tabetu[i].nom)
+		{
+			cout << "votre note est :" << tabetu[i].note << endl;
+			break;
+		}
 	}
 return 0;
 }
